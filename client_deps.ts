@@ -1,11 +1,14 @@
 /// <reference types="https://deno.land/x/xuybin_fresh@v0.0.3/types.d.ts" />
 export * from "https://deno.land/x/xuybin_fresh@v0.0.3/runtime.ts";
 export { apply, setup, tw } from "https://esm.sh/twind@0.16.16";
-export { useLocalStorageState } from "https://deno.land/x/preact_ahooks@v0.0.3/mod.ts";
+export { css } from "https://esm.sh/twind@0.16.16/css";
+export { useLocalStorageState,useIsomorphicLayoutEffect,useMedia,useDebounce } from "https://deno.land/x/preact_ahooks@v0.0.5/mod.ts";
+export  * from "https://deno.land/x/preact_split_pane@v0.0.2/mod.ts";
 
-//export { default as clsx } from "https://esm.sh/clsx@1.1.1";
+// https://github.com/preactjs/preact/issues/1521
+export { forwardRef } from "https://esm.sh/preact/compat";
 
-import { IS_BROWSER } from "https://deno.land/x/xuybin_fresh@v0.0.3/runtime.ts";
+import { IS_BROWSER, } from "https://deno.land/x/xuybin_fresh@v0.0.3/runtime.ts";
 import { cssomSheet, setup, ThemeResolver } from "https://esm.sh/twind@0.16.16";
 import * as colors from "https://esm.sh/twind@0.16.16/colors";
 
@@ -59,6 +62,7 @@ export function setupTheme() {
 if (IS_BROWSER) {
   //setup({});
   setup({
+    darkMode: 'class',
     sheet: cssomSheet({ target: new CSSStyleSheet() }),
     theme: setupTheme(),
   });

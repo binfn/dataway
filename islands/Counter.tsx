@@ -1,6 +1,7 @@
 /** @jsx h */
 import { h,tw, IS_BROWSER, useState,FunctionComponent } from "../client_deps.ts";
 import { HeaderButton } from "../components/HeaderButton.tsx";
+import {TabBar } from "../components/TabBar.tsx";
 
 interface CounterProps {
   start: number;
@@ -55,7 +56,10 @@ const Counter: FunctionComponent<CounterProps> = (props) => {
             </path>
           </g>
         </HeaderButton>
-      
+        <TabBar activeTab="html" width="100%" isLoading={true} 
+        showPreviewTab={false}
+        onChange={()=>{}}
+        />
     </div>
   );
 }

@@ -31,7 +31,6 @@ export function onDidChangeTheme(callback:(theme:'dark'|'light')=>void) {
 }
 
 export function toggleTheme() {
-  console.log("---toggleTheme-----")
   const root = document.querySelector('html')
   if(root){
     root.classList.add('disable-transitions')

@@ -5,6 +5,7 @@ import { RenderContext, RenderFn, virtualSheet } from "../server_deps.ts";
 const sheet = virtualSheet();
 sheet.reset();
 setup({ 
+  darkMode: 'class',
   sheet,
   theme:setupTheme()
  });

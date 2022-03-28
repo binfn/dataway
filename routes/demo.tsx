@@ -1,10 +1,11 @@
 /** @jsx h */
-import { h, tw } from "../client_deps.ts";
+import { h, SplitPane, tw } from "../client_deps.ts";
 import Counter from "../islands/Counter.tsx";
-
+import {TabBar } from "../components/TabBar.tsx";
 export default function Home() {
   return (
     <div>
+     
       <svg
         width="42"
         height="36"
@@ -103,6 +104,15 @@ export default function Home() {
         Red to Yellow
       </button>
       <Counter start={3} />
+
+      {/* <SplitPane
+        split={"vertical"}
+        minSize={50}
+        resizerClassName={"Resizer"}
+      >
+        <div className={tw`bg-green-500`}>1</div>
+        <div className={tw`bg-blue-500`}>2</div>
+      </SplitPane> */}
     </div>
   );
 }

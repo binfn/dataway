@@ -1,9 +1,9 @@
 /** @jsx  h */
-/** @jsxFrag  h */
+/** @jsxFrag  Fragment */
 
 import { Logo } from "./Logo.tsx";
 import { HeaderButton } from "./HeaderButton.tsx";
-import { FunctionComponent, h, tw } from "../client_deps.ts";
+import { FunctionComponent, h, tw,Fragment } from "../client_deps.ts";
 export const Header: FunctionComponent<{
   layout: "vertical" | "preview" | "horizontal";
   onChangeLayout: (layout: "vertical" | "preview" | "horizontal") => void;
@@ -24,7 +24,7 @@ export const Header: FunctionComponent<{
     style={{ fontFeatureSettings: '"cv02", "cv03", "cv04", "cv11"' }}
   >
     <div className={tw`flex-auto flex items-center min-w-0 space-x-6`}>
-      <Logo className="flex-none text-black dark:text-white" />
+      <Logo className={`flex-none text-black dark:text-white`} />
       {children}
     </div>
     <div className={tw`flex items-center`}>
@@ -87,12 +87,12 @@ export const Header: FunctionComponent<{
         width={36}
         height={36}
         label={
-          <div>
+          <>
             <span className={tw`dark:hidden`}>Switch to dark theme</span>
             <span className={tw`hidden dark:inline`}>
               Switch to light theme
             </span>
-          </div>
+          </>
         }
         onClick={onToggleTheme}
         iconClassName="stroke-sky-500 fill-sky-100 group-hover:stroke-sky-600 dark:stroke-gray-400 dark:fill-gray-400/20 dark:group-hover:stroke-gray-300"
