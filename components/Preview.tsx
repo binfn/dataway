@@ -8,6 +8,7 @@ import {
   h,
   StateUpdater,
   tw,
+  css,
   useEffect,
   useIsomorphicLayoutEffect,
   useRef,
@@ -160,56 +161,6 @@ export const Preview = forwardRef<HTMLIFrameElement, {
       }
 
       if (resizing) {
-        // function onMouseMove(e:MouseEvent) {
-        //   e.preventDefault()
-        //   const { x, y } = getPointerPosition(e)
-        //   if (resizing.handle === 'bottom') {
-        //     document.body.classList.add('cursor-ns-resize')
-        //     onChangeResponsiveSize(({ width }) => ({
-        //       width,
-        //       height: resizing.startHeight + (y - resizing.startY),
-        //     }))
-        //   } else if (resizing.handle === 'left') {
-        //     document.body.classList.add('cursor-ew-resize')
-        //     onChangeResponsiveSize(({ height }) => ({
-        //       width: resizing.startWidth - (x - resizing.startX) * 2,
-        //       height,
-        //     }))
-        //   } else if (resizing.handle === 'right') {
-        //     document.body.classList.add('cursor-ew-resize')
-        //     onChangeResponsiveSize(({ height }) => ({
-        //       width: resizing.startWidth + (x - resizing.startX) * 2,
-        //       height,
-        //     }))
-        //   } else if (resizing.handle === 'bottom-left') {
-        //     document.body.classList.add('cursor-nesw-resize')
-        //     onChangeResponsiveSize(() => ({
-        //       width: resizing.startWidth - (x - resizing.startX) * 2,
-        //       height: resizing.startHeight + (y - resizing.startY),
-        //     }))
-        //   } else if (resizing.handle === 'bottom-right') {
-        //     document.body.classList.add('cursor-nwse-resize')
-        //     onChangeResponsiveSize(() => ({
-        //       width: resizing.startWidth + (x - resizing.startX) * 2,
-        //       height: resizing.startHeight + (y - resizing.startY),
-        //     }))
-        //   }
-        // }
-        // function onMouseUp(e:MouseEvent) {
-        //   e.preventDefault()
-        //   if (resizing.handle === 'bottom') {
-        //     document.body.classList.remove('cursor-ns-resize')
-        //   } else if (resizing.handle === 'left') {
-        //     document.body.classList.remove('cursor-ew-resize')
-        //   } else if (resizing.handle === 'right') {
-        //     document.body.classList.remove('cursor-ew-resize')
-        //   } else if (resizing.handle === 'bottom-left') {
-        //     document.body.classList.remove('cursor-nesw-resize')
-        //   } else if (resizing.handle === 'bottom-right') {
-        //     document.body.classList.remove('cursor-nwse-resize')
-        //   }
-        //   setResizing()
-        // }
         window.addEventListener("mousemove", onMouseMove);
         window.addEventListener("mouseup", onMouseUp);
         window.addEventListener("touchmove", onMouseMove);
@@ -284,7 +235,7 @@ export const Preview = forwardRef<HTMLIFrameElement, {
 
     return (
       <div
-        className={tw`absolute inset-0 top-12 lg:top-0 flex flex-col border-t border-gray-200 dark:border-white/10 lg:border-0 bg-gray-50 dark:bg-black`}
+        className={tw`${css`z-index: -1`} absolute inset-0 top-12 lg:top-0 flex flex-col border-t border-gray-200 dark:border-white/10 lg:border-0 bg-gray-50 dark:bg-black`}
         ref={containerRef}
       >
         {responsiveDesignMode && (
