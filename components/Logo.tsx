@@ -1,5 +1,5 @@
 /** @jsx h */
-import { h,tw } from "../client_deps.ts";
+import { h, tw } from "../client_deps.ts";
 
 export function Logo(props: { className: string }) {
   return (
@@ -19,7 +19,5 @@ export function Logo(props: { className: string }) {
         fill="#38BDF8"
       />
     </svg>
-  )
+  );
 }
-
-

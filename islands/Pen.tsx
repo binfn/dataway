@@ -15,6 +15,7 @@ import {
   useDebounce,
   useEffect,
   useIsomorphicLayoutEffect,
+  useLocalStorageState,
   useMedia,
   useRef,
   useState,
@@ -22,8 +23,19 @@ import {
 import { Header } from "../components/Header.tsx";
 import { TabBar } from "../components/TabBar.tsx";
 import { Preview } from "../components/Preview.tsx";
+import { CodeMirror } from "../components/Codemirror.tsx";
+//import CodeMirror  from "https://esm.sh/@uiw/react-codemirror";
 
-import { toggleTheme } from "../utils/theme.ts";
+import {
+  tsxLanguage,
+  typescriptLanguage,
+} from "https://raw.githubusercontents.com/binfn/codemirror.king/main/lang-javascript/src/javascript.ts";
+
+// try {
+//   window.localStorage.setItem('theme', 'dark')
+// // deno-lint-ignore no-empty
+// } catch (_) {}
+import { changeTheme, getTheme } from "../utils/theme.ts";
 
 const HEADER_HEIGHT = 60 - 1;
 const TAB_BAR_HEIGHT = 40;
@@ -47,6 +59,15 @@ export const Pen: FunctionComponent<{
   initialResponsiveSize,
   initialActiveTab,
 }) => {
+  const [theme, setTheme] = useLocalStorageState<"dark" | "light">("theme", {
+    defaultValue: "light",
+    serializer: (v) => v,
+    deserializer: (v) => v as "dark" | "light",
+  });
+  const toggleTheme = () => {
+    changeTheme();
+    setTheme(theme == "dark" ? "light" : "dark");
+  };
   const previewRef = useRef<HTMLIFrameElement>(null);
   const worker = useRef<any>();
   const [size, setSize] = useState<{
@@ -66,7 +87,8 @@ export const Pen: FunctionComponent<{
   const [dirty, setDirty] = useState(false);
   const [renderEditor, setRenderEditor] = useState(false);
 
-  const editorRef = useRef();
+  const editorRef = useRef<{ getValue: (doc: "html" | "css") => string }>();
+
   const [responsiveDesignMode, setResponsiveDesignMode] = useState(
     initialResponsiveSize ? true : false,
   );
@@ -126,12 +148,6 @@ export const Pen: FunctionComponent<{
     previewRef.current?.contentWindow?.postMessage(content, "*");
   }, []);
 
-  const onChange = useCallback(
-    (document: any, content: any) => {
-      setDirty(true);
-    },
-    [inject, jit],
-  );
   useIsomorphicLayoutEffect(() => {
     function updateSize() {
       setSize((size: any) => {
@@ -179,9 +195,11 @@ export const Pen: FunctionComponent<{
   useEffect(() => {
     if (isLg) {
       if (size.layout !== "preview") {
+        console.log("-------setRenderEditor-------");
         setRenderEditor(true);
       }
     } else if (activePane === "editor") {
+      console.log("-------setRenderEditor-------");
       setRenderEditor(true);
     }
   }, [activePane, isLg, size.layout]);
@@ -319,20 +337,24 @@ export const Pen: FunctionComponent<{
                   ? "Resizer"
                   : "Resizer-collapsed"}
               >
-                <div className="border-t border-gray-200 dark:border-white/10 mt-12 flex-auto flex">
-                  {
-                    // renderEditor && (
-                    //   <Editor
-                    //     editorRef={(ref) => (editorRef.current = ref)}
-                    //     initialContent={initialContent}
-                    //     onChange={onChange}
-                    //     worker={worker}
-                    //     activeTab={activeTab}
-                    //     tailwindVersion={tailwindVersion}
-                    //   />
-                    // )
-                  }
-                  {JSON.stringify(responsiveSize)}
+                <div
+                  className={tw
+                    `border-t border-gray-200 dark:border-white/10 mt-12 flex-auto flex`}
+                >
+                  {renderEditor && (
+                    // <Editor
+                    //   editorRef={(ref) => (editorRef.current = ref)}
+                    //   initialContent={initialContent}
+                    //   onChange={onChange}
+                    //   activeTab={activeTab}
+                    // />
+                    <CodeMirror
+                      theme={theme}
+                      value={initialContent.html}
+                      extensions={[tsxLanguage, typescriptLanguage]}
+                      onChange={(value, vu) => console.log("onChange:" + value)}
+                    />
+                  )}
                 </div>
                 <div className="absolute inset-0 w-full h-full">
                   {
@@ -357,7 +379,6 @@ export const Pen: FunctionComponent<{
                           // })
                         }}
                       />
-
 
                     // <ErrorOverlay error={error} />
                   }

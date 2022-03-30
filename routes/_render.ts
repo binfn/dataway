@@ -1,14 +1,14 @@
 // This module adds twind support.
-import { setup,setupTheme } from "../client_deps.ts";
+import { setup, setupTheme } from "../client_deps.ts";
 import { RenderContext, RenderFn, virtualSheet } from "../server_deps.ts";
 
 const sheet = virtualSheet();
 sheet.reset();
-setup({ 
-  darkMode: 'class',
+setup({
+  darkMode: "class",
   sheet,
-  theme:setupTheme()
- });
+  theme: setupTheme(),
+});
 
 export function render(ctx: RenderContext, render: RenderFn) {
   const snapshot = ctx.state.get("twindSnapshot") as unknown[] | null;

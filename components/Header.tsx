@@ -3,7 +3,7 @@
 
 import { Logo } from "./Logo.tsx";
 import { HeaderButton } from "./HeaderButton.tsx";
-import { FunctionComponent, h, tw,Fragment } from "../client_deps.ts";
+import { Fragment, FunctionComponent, h, tw } from "../client_deps.ts";
 export const Header: FunctionComponent<{
   layout: "vertical" | "preview" | "horizontal";
   onChangeLayout: (layout: "vertical" | "preview" | "horizontal") => void;

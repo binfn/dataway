@@ -2,13 +2,13 @@
 /** @jsxFrag  Fragment */
 
 import {
+  css,
   forwardRef,
   Fragment,
   FunctionComponent,
   h,
   StateUpdater,
   tw,
-  css,
   useEffect,
   useIsomorphicLayoutEffect,
   useRef,
@@ -235,11 +235,15 @@ export const Preview = forwardRef<HTMLIFrameElement, {
 
     return (
       <div
-        className={tw`${css`z-index: -1`} absolute inset-0 top-12 lg:top-0 flex flex-col border-t border-gray-200 dark:border-white/10 lg:border-0 bg-gray-50 dark:bg-black`}
+        className={tw`${css
+          `z-index: -1`} absolute inset-0 top-12 lg:top-0 flex flex-col border-t border-gray-200 dark:border-white/10 lg:border-0 bg-gray-50 dark:bg-black`}
         ref={containerRef}
       >
         {responsiveDesignMode && (
-          <div className={tw`flex-none text-center text-xs leading-4 tabular-nums whitespace-pre py-3 text-gray-900 dark:text-gray-400`}>
+          <div
+            className={tw
+              `flex-none text-center text-xs leading-4 tabular-nums whitespace-pre py-3 text-gray-900 dark:text-gray-400`}
+          >
             {constrainedResponsiveSize.width}{"  "}×{"  "}
             {constrainedResponsiveSize.height}{"  "}
             <span className={tw`text-gray-500`}>
@@ -259,7 +263,8 @@ export const Preview = forwardRef<HTMLIFrameElement, {
         >
           {responsiveDesignMode && (
             <div
-              className={tw`cursor-ew-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
+              className={tw
+                `cursor-ew-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
               onMouseDown={startLeft}
               onTouchStart={startLeft}
             >
@@ -400,7 +405,8 @@ export const Preview = forwardRef<HTMLIFrameElement, {
           {responsiveDesignMode && (
             <>
               <div
-                className={tw`cursor-ew-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
+                className={tw
+                  `cursor-ew-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
                 onMouseDown={startRight}
                 onTouchStart={startRight}
               >
@@ -415,7 +421,8 @@ export const Preview = forwardRef<HTMLIFrameElement, {
                 </svg>
               </div>
               <div
-                className={tw`cursor-nesw-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
+                className={tw
+                  `cursor-nesw-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
                 onMouseDown={startBottomLeft}
                 onTouchStart={startBottomLeft}
               >
@@ -425,13 +432,15 @@ export const Preview = forwardRef<HTMLIFrameElement, {
                   height={6}
                   fill="none"
                   stroke="currentColor"
-                  className={tw`transform translate-x-0.5 -translate-y-0.5 rotate-45`}
+                  className={tw
+                    `transform translate-x-0.5 -translate-y-0.5 rotate-45`}
                 >
                   <path d="M 0 0.5 H 16 M 0 5.5 H 16" />
                 </svg>
               </div>
               <div
-                className={tw`cursor-ns-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
+                className={tw
+                  `cursor-ns-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
                 onMouseDown={startBottom}
                 onTouchStart={startBottom}
               >
@@ -446,7 +455,8 @@ export const Preview = forwardRef<HTMLIFrameElement, {
                 </svg>
               </div>
               <div
-                className={tw`cursor-nwse-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
+                className={tw
+                  `cursor-nwse-resize select-none bg-gray-100 dark:bg-gray-800 text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-400 transition-colors duration-150 flex items-center justify-center`}
                 onMouseDown={startBottomRight}
                 onTouchStart={startBottomRight}
               >
@@ -456,7 +466,8 @@ export const Preview = forwardRef<HTMLIFrameElement, {
                   height={6}
                   fill="none"
                   stroke="currentColor"
-                  className={tw`transform -translate-x-0.5 -translate-y-0.5 -rotate-45`}
+                  className={tw
+                    `transform -translate-x-0.5 -translate-y-0.5 -rotate-45`}
                 >
                   <path d="M 0 0.5 H 16 M 0 5.5 H 16" />
                 </svg>
@@ -465,7 +476,10 @@ export const Preview = forwardRef<HTMLIFrameElement, {
           )}
         </div>
         {!responsiveDesignMode && size.visible && (
-          <div className={tw`absolute top-4 right-4 rounded-full h-6 flex items-center text-xs leading-4 whitespace-pre px-3 tabular-nums bg-white border border-gray-300 shadow dark:bg-gray-700 dark:border-transparent`}>
+          <div
+            className={tw
+              `absolute top-4 right-4 rounded-full h-6 flex items-center text-xs leading-4 whitespace-pre px-3 tabular-nums bg-white border border-gray-300 shadow dark:bg-gray-700 dark:border-transparent`}
+          >
             {size.width}{"  "}×{"  "}{size.height}
           </div>
         )}
