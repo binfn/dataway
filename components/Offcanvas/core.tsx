@@ -177,8 +177,6 @@ export function Offcanvas({
     visibility: hidden;
     transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out;`;
 
-  
-  // className={`${css.offcanvas} ${css[position]} ${isOpen ? css.show : ''} ${className}`}
   return (
     <>
       <div

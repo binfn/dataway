@@ -7,7 +7,7 @@ import { AppContext } from './provider.tsx'
 
 export function Trigger({
   component = 'button',
-  className = '',
+  className = 'offcanvas-trigger',
   styles = {},
   children
 }: TriggerProps) {
@@ -24,6 +24,7 @@ export function Trigger({
     >
       {children || 'Offcanvas Trigger'}
     </button>
+    
   ) : (
     <div
       className={className}

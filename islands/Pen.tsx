@@ -284,7 +284,6 @@ export const Pen: FunctionComponent<{
 
   return (
     <div className={tw(globalStyles)}>
-      {/* style="width:100%;flex:none;display:flex;flex-direction:column;" */}
       <Header
         layout={size.layout}
         onChangeLayout={(layout) => setSize((size) => ({ ...size, layout }))}

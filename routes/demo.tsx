@@ -1,7 +1,6 @@
 /** @jsx h */
 import { h, SplitPane, tw } from "../client_deps.ts";
 import Counter from "../islands/Counter.tsx";
-import { TabBar } from "../components/TabBar.tsx";
 export default function Home() {
   return (
     <div>
