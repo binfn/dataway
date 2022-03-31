@@ -23,7 +23,7 @@ export const Header: FunctionComponent<{
       `relative z-20 flex-none py-3 pl-5 pr-3 sm:pl-6 sm:pr-4 md:pr-3.5 lg:px-6 flex items-center space-x-4 antialiased`}
     style={{ fontFeatureSettings: '"cv02", "cv03", "cv04", "cv11"' }}
   >
-    <div className={tw`flex-auto flex items-center min-w-0 space-x-6`}>
+    <div className={tw`flex-auto flex items-center min-w-0 space-x-6`} onClick={()=>console.log("onLogoClick")}>
       <Logo className={`flex-none text-black dark:text-white`} />
       {children}
     </div>

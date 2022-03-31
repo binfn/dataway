@@ -3,7 +3,7 @@ import { h, tw } from "../client_deps.ts";
 
 export function Logo(props: { className: string }) {
   return (
-    <svg width="171" height="21" fill="none" class={tw`${props.className}`}>
+    <svg width="171" height="21" fill="none" class={tw`${props.className}`} >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

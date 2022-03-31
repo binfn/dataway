@@ -342,12 +342,6 @@ export const Pen: FunctionComponent<{
                     `border-t border-gray-200 dark:border-white/10 mt-12 flex-auto flex`}
                 >
                   {renderEditor && (
-                    // <Editor
-                    //   editorRef={(ref) => (editorRef.current = ref)}
-                    //   initialContent={initialContent}
-                    //   onChange={onChange}
-                    //   activeTab={activeTab}
-                    // />
                     <CodeMirror
                       theme={theme}
                       value={initialContent.html}

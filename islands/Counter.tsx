@@ -8,6 +8,7 @@ import {
 } from "../client_deps.ts";
 import { HeaderButton } from "../components/HeaderButton.tsx";
 import { TabBar } from "../components/TabBar.tsx";
+import {  OffcanvasProvider, Trigger, Offcanvas } from "../components/Offcanvas/mod.tsx";
 
 interface CounterProps {
   start: number;
@@ -81,6 +82,11 @@ const Counter: FunctionComponent<CounterProps> = (props) => {
         showPreviewTab={false}
         onChange={() => {}}
       />
+
+    <OffcanvasProvider  onOpen={()=> console.log('open')} onClose={()=> console.log('onClose')} >
+          <Trigger />
+          <Offcanvas position='left' allowEsc={false} />
+        </OffcanvasProvider>
     </div>
   );
 };
