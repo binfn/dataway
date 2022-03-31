@@ -84,9 +84,9 @@ export const Header: FunctionComponent<{
         </svg>
         <span style="margin-left: 12px;">GitRepo</span>
       </a>
-      <span style="margin-left: 0px;margin-right: 4px;opacity: .5;" >/</span>
+      {/* <span style="margin-left: 0px;margin-right: 4px;opacity: .5;" >/</span> */}
       <span id="project_name" style="margin-left: 0px;">
-        <a href="/projects/dataway">dataway</a>
+        <a href="/projects/dataway">/api/index.tsx</a>
       </span>
       {/* <span
         id="project_public"
