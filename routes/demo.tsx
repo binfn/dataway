@@ -1,8 +1,16 @@
 /** @jsx h */
-import { h, SplitPane, tw } from "../client_deps.ts";
+/** @jsxFrag Fragment */
+import { h, Fragment,SplitPane, tw,Head } from "../client_deps.ts";
 import Counter from "../islands/Counter.tsx";
+
+
 export default function Home() {
   return (
+    <>
+    <Head>
+        <title> fresh docs</title>
+        <link rel="stylesheet" href="/rc-tree.css" />
+      </Head>
     <div>
       <svg
         width="42"
@@ -114,5 +122,6 @@ export default function Home() {
       </SplitPane> */
       }
     </div>
+    </>
   );
 }

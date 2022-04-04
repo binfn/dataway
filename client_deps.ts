@@ -1,5 +1,5 @@
 /// <reference types="https://deno.land/x/xuybin_fresh@v0.0.4/types.d.ts" />
-export * from "https://deno.land/x/xuybin_fresh@v0.0.3/runtime.ts";
+export * from "https://deno.land/x/xuybin_fresh@v0.0.5/runtime.ts";
 export { apply, setup, tw } from "https://esm.sh/twind@0.16.16";
 export { css } from "https://esm.sh/twind@0.16.16/css";
 export {
@@ -7,13 +7,13 @@ export {
   useIsomorphicLayoutEffect,
   useLocalStorageState,
   useMedia,
-} from "https://deno.land/x/preact_ahooks@v0.0.5/mod.ts";
+} from "https://deno.land/x/preact_ahooks@v0.0.6/mod.ts";
 export * from "https://deno.land/x/preact_split_pane@v0.1.1/mod.ts";
 
 // https://github.com/preactjs/preact/issues/1521
-export { forwardRef } from "https://esm.sh/preact@10.6.6/compat";
+export { forwardRef,unmountComponentAtNode,render,findDOMNode } from "https://esm.sh/preact@10.x.x/compat";
 
-import { IS_BROWSER } from "https://deno.land/x/xuybin_fresh@v0.0.3/runtime.ts";
+import { IS_BROWSER } from "https://deno.land/x/xuybin_fresh@v0.0.5/runtime.ts";
 import { cssomSheet, setup, ThemeResolver } from "https://esm.sh/twind@0.16.16";
 
 import * as colors from "https://esm.sh/twind@0.16.16/colors";

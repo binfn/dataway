@@ -1,7 +1,9 @@
 /** @jsx h */
+/** @jsxFrag Fragment */
 import {
   FunctionComponent,
   h,
+  Fragment,
   IS_BROWSER,
   tw,
   useState,
@@ -9,11 +11,38 @@ import {
 import { HeaderButton } from "../components/HeaderButton.tsx";
 import { TabBar } from "../components/TabBar.tsx";
 import {  OffcanvasProvider, Trigger, Offcanvas } from "../components/Offcanvas/mod.tsx";
+import Tree  from "https://raw.githubusercontents.com/binfn/preact_component/main/tree/index.ts"
+//import "https://esm.sh/rc-tree@5.5.0/assets/rc-tree.css";
 
 interface CounterProps {
   start: number;
 }
-
+const treeData = [
+  {
+    key: '0-0',
+    title: 'parent 1',
+    children: [
+      { key: '0-0-0', title: 'parent 1-1', children: [{ key: '0-0-0-0', title: 'parent 1-1-0' }] },
+      {
+        key: '0-0-1',
+        title: 'parent 1-2',
+        children: [
+          { key: '0-0-1-0', title: 'parent 1-2-0', disableCheckbox: true },
+          { key: '0-0-1-1', title: 'parent 1-2-1' },
+          { key: '0-0-1-2', title: 'parent 1-2-2' },
+          { key: '0-0-1-3', title: 'parent 1-2-3' },
+          { key: '0-0-1-4', title: 'parent 1-2-4' },
+          { key: '0-0-1-5', title: 'parent 1-2-5' },
+          { key: '0-0-1-6', title: 'parent 1-2-6' },
+          { key: '0-0-1-7', title: 'parent 1-2-7' },
+          { key: '0-0-1-8', title: 'parent 1-2-8' },
+          { key: '0-0-1-9', title: 'parent 1-2-9' },
+          { key: 1128, title: 1128 },
+        ],
+      },
+    ],
+  },
+];
 const Counter: FunctionComponent<CounterProps> = (props) => {
   const [count, setCount] = useState(props.start);
   return (
@@ -87,7 +116,18 @@ const Counter: FunctionComponent<CounterProps> = (props) => {
           <Trigger />
           <Offcanvas position='left' allowEsc={false} />
         </OffcanvasProvider>
+
+        <Tree
+          className="myCls"
+          defaultExpandAll
+          // @ts-ignore dd
+          treeData={treeData}
+          onSelect={(selectedKeys, info) => {console.log('selected', selectedKeys, info);}}
+          height={150}
+        />
     </div>
+
+    
   );
 };
 
