@@ -126,13 +126,13 @@ const FileTree: FunctionComponent<any> = (props) => {
     }
     return false;
   }
-  let myRef = useRef<any>();
+ 
   useEffect(() => {
-    console.log("Here, useEffect act as componentDidMount1");
+    //console.log("Here, useEffect act as componentDidMount1");
     getContainer();
     // console.log(ReactDOM.findDOMNode(this), this.cmContainer);
     // console.log(contains(findDOMNode(myRef.current), cmContainer));
-    console.log("Here, useEffect act as componentDidMount2");
+    //console.log("Here, useEffect act as componentDidMount2");
     return () => {
         if (cmContainer.current) {
           unmountComponentAtNode(cmContainer.current);
@@ -157,9 +157,15 @@ const FileTree: FunctionComponent<any> = (props) => {
         placement="bottomRight"
         prefixCls="rc-tree-contextmenu"
         defaultVisible
-        overlay={<h4>{info.node.props.title}</h4>}
+        overlay={
+          <>
+          <h4>{info.node.props.title}</h4>
+          <p onClick={()=>console.log("删除")}>删除</p>
+          <p onClick={()=>console.log("重命名")}>重命名</p>
+          </>
+      }
       >
-        <span />
+        <span/>
       </Tooltip>
     );
     console.log("renderCm toolTip4:"+toolTip.current +' cmContainer:'+cmContainer.current)
@@ -276,7 +282,6 @@ const FileTree: FunctionComponent<any> = (props) => {
 
       </Head>
       <Tree
-        ref={myRef}
         draggable
         allowDrop={allowDrop}
         onDrop={onDrop}
