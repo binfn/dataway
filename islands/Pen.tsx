@@ -36,6 +36,7 @@ import {
 // // deno-lint-ignore no-empty
 // } catch (_) {}
 import { changeTheme, getTheme } from "../utils/theme.ts";
+import FileTree from "../islands/FileTree.tsx";
 
 const HEADER_HEIGHT = 60 - 1;
 const TAB_BAR_HEIGHT = 40;
@@ -292,6 +293,7 @@ export const Pen: FunctionComponent<{
           setResponsiveDesignMode(!responsiveDesignMode)}
         onToggleTheme={toggleTheme}
       >
+        <FileTree/>
       </Header>
       <main
         className={tw
