@@ -1,6 +1,6 @@
 /** @jsx h */
 /** @jsxFrag Fragment */
-import { h, Fragment,SplitPane, tw,Head } from "../client_deps.ts";
+import { h, Fragment, tw,Head } from "../client_deps.ts";
 import Counter from "../islands/Counter.tsx";
 
 
